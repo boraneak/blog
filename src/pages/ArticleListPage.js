@@ -5,12 +5,12 @@ const ArticleListPage = () => {
   let { articleId } = useParams();
   const article = articles.find(article => article.name === articleId);
   return (
-    <Fragment>
+    <>
       <h1>{article.title}</h1>
-      {article.content.map(paragraph => (
-        <p>{paragraph}</p>
+      {article.content.map((paragraph, index) => (
+        <p key={index}>{paragraph}</p>
       ))}
-    </Fragment>
+    </>
   )
 }
 export default ArticleListPage;
