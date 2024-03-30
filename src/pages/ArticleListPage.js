@@ -1,5 +1,4 @@
 import { useParams } from 'react-router-dom';
-import { Fragment } from 'react';
 import articles from './article-content';
 const ArticleListPage = () => {
   let { articleId } = useParams();
