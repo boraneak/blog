@@ -3,7 +3,6 @@ import { BrowserRouter, Routes, Route } from 'react-router-dom';
 import AboutPage from './pages/AboutPage';
 import HomePage from './pages/HomePage';
 import ArticleListPage from './pages/ArticleListPage';
-// import NotFoundPage from './pages/NotFoundPage';
 import ArticlePage from './pages/ArticlePage';
 import NavBar from './NavBar';
 
@@ -18,7 +17,6 @@ function App() {
         <Routes>
           <Route path="/" element={<HomePage />}></Route>
           <Route path="/about" element={<AboutPage />}></Route>
-          {/* <Route path="/not-found" element={<NotFoundPage />}></Route> */}
           <Route path="/articles" element={<ArticlePage />}></Route>
           <Route path='/articles/:articleId' element={<ArticleListPage/>}></Route>
         </Routes>
