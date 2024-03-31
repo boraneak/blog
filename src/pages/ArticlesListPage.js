@@ -1,6 +1,6 @@
 import { Link } from "react-router-dom";
 import articles from "./article-content";
-const ArticlePage = () => {
+const ArticlesListPage = () => {
   return (
     <>
       <h1>articles</h1>
@@ -15,4 +15,4 @@ const ArticlePage = () => {
     </>
   )
 }
-export default ArticlePage;
+export default ArticlesListPage;

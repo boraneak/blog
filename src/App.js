@@ -2,12 +2,11 @@ import './App.css';
 import { BrowserRouter, Routes, Route } from 'react-router-dom';
 import AboutPage from './pages/AboutPage';
 import HomePage from './pages/HomePage';
-import ArticleListPage from './pages/ArticleListPage';
-import ArticlePage from './pages/ArticlePage';
+import ArticlesListPage from './pages/ArticlesPage';
+import ArticlesPage from './pages/ArticlesListPage';
 import NavBar from './NavBar';
 
 function App() {
-  // Get the articleId param from the URL.
   return (
     <BrowserRouter>
       <div className="App">
@@ -16,8 +15,8 @@ function App() {
         <Routes>
           <Route path="/" element={<HomePage />}></Route>
           <Route path="/about" element={<AboutPage />}></Route>
-          <Route path="/articles" element={<ArticlePage />}></Route>
-          <Route path='/articles/:articleId' element={<ArticleListPage/>}></Route>
+          <Route path="/articles" element={<ArticlesPage />}></Route>
+          <Route path='/articles/:articleId' element={<ArticlesListPage/>}></Route>
         </Routes>
         </div>
       </div>

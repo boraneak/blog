@@ -1,6 +1,6 @@
 import { useParams } from 'react-router-dom';
 import articles from './article-content';
-const ArticleListPage = () => {
+const ArticlesPage = () => {
   let { articleId } = useParams();
   const article = articles.find(article => article.name === articleId);
   return (
@@ -12,4 +12,4 @@ const ArticleListPage = () => {
     </>
   )
 }
-export default ArticleListPage;
+export default ArticlesPage;
