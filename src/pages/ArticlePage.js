@@ -8,7 +8,7 @@ const ArticlePage = () => {
         <div key={index}>
           <Link className="article-list-item" to={`/articles/${article.name}`}>
             <h1>{article.title}</h1>
-            <p>{article.content[0].substring(0, 145)}</p>
+            <p>{article.content[0].substring(0, 145)}...</p>
           </Link>
         </div>
       ))}
