@@ -11,7 +11,6 @@ function App() {
   return (
     <BrowserRouter>
       <div className="App">
-        <h1>my awesome blog.</h1>
         <NavBar/>
         <div id='page-body'>
         <Routes>
