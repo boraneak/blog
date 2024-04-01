@@ -11,15 +11,15 @@ function App() {
   return (
     <BrowserRouter>
       <div className="App">
-        <NavBar/>
+        <NavBar />
         <div id='page-body'>
-        <Routes>
-          <Route path="/" element={<HomePage />}></Route>
-          <Route path="/about" element={<AboutPage />}></Route>
-          <Route path="/articles" element={<ArticlesPage />}></Route>
-          <Route path='/articles/:articleId' element={<ArticlesListPage/>}></Route>
-          <Route path="*" element={<NotFoundPage/>}></Route>
-        </Routes>
+          <Routes>
+            <Route path="/" element={<HomePage />} />
+            <Route path="/about" element={<AboutPage />} />
+            <Route path="/articles" element={<ArticlesPage />} />
+            <Route path='/articles/:articleId' element={<ArticlesListPage />} />
+            <Route path="*" element={<NotFoundPage />} />
+          </Routes>
         </div>
       </div>
     </BrowserRouter>
