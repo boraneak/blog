@@ -1,6 +1,5 @@
 import { useParams } from 'react-router-dom';
 import { useState, useEffect } from 'react';
-import articles from './article-content';
 import NotFoundPage from './NotFoundPage';
 import axios from 'axios';
 const ArticlesPage = () => {
