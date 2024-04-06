@@ -2,29 +2,37 @@ import { useParams } from 'react-router-dom';
 import { useState, useEffect } from 'react';
 import articles from './article-content';
 import NotFoundPage from './NotFoundPage';
-// import { axios } from 'axios';
+import axios from 'axios';
 const ArticlesPage = () => {
-  const [articleInfo, setArticleInfo] = useState({ upvotes: 0, comments: [] });
-
-
-  useEffect(() => {
-    setArticleInfo({ upvotes: Math.ceil(Math.random() * 10), comments: [] });
-  }, [])
-
-
   let { articleId } = useParams();
+  const [articleInfo, setArticleInfo] = useState({ upvotes: 0, comments: [] });
+  useEffect(() => {
+    const fetchArticle = async () => {
+      try {
+        const response = await axios.get(`http://localhost:3001/api/articles/${articleId}`);
+        console.log('what is my response:::', response);
+        const newArticleInfo = response.data;
+        setArticleInfo(newArticleInfo);
 
-  const article = articles.find(article => article.name === articleId);
-  if (!article) {
-    return <NotFoundPage />
-  }
+      } catch (error) {
+        console.error('error fetching articles', error);
+      }
+    }
+    fetchArticle();
+  }, [articleId])
+
+
+  // const article = articleInfo.find(article => article.name === articleId);
+  // if (!article) {
+  //   return <NotFoundPage />
+  // }
   return (
     <>
-      <h1>{article.title}</h1>
+      {/* <h1>{articleInfo.title}</h1>
       <p>this article has {articleInfo.upvotes} upvote(s).</p>
-      {article.content.map((paragraph, index) => (
+      {articleInfo.comments.map((paragraph, index) => (
         <p key={index}>{paragraph}</p>
-      ))}
+      ))} */}
     </>
   )
 }
