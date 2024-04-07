@@ -1,6 +1,7 @@
 import { useParams } from 'react-router-dom';
 import { useState, useEffect } from 'react';
-import NotFoundPage from './NotFoundPage';
+import CommentsList from '../components/CommentsList';
+// import NotFoundPage from './NotFoundPage';
 import axios from 'axios';
 const ArticlesPage = () => {
   let { articleId } = useParams();
@@ -25,9 +26,11 @@ const ArticlesPage = () => {
     <>
       <h1>{articleInfo.name}</h1>
       <p>this article has {articleInfo.upvotes} upvote(s).</p>
-      {/* {articleInfo.comments.map((paragraph, index) => (
-        <p key={index}>{paragraph}</p>
-      ))} */}
+      <div>
+        <p>{articleInfo.content}</p>
+        <CommentsList comments={articleInfo.comments} />
+        {/* {articleInfo.comments.length > 0 ? <CommentsList comments={articleInfo.comments} /> : <div>no comments yet</div>} */}
+      </div>
     </>
   )
 }
