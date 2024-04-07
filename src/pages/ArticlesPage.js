@@ -17,7 +17,20 @@ const ArticlesPage = () => {
       }
     }
     fetchArticle();
-  }, [articleId])
+  }, [articleId]);
+
+  const upvoteArticle = async () => {
+    try {
+      if (!articleId) {
+        return <div>article not found!</div>
+      }
+      const response = await axios.put(`/api/articles/${articleId}/upvote`);
+      const updatedArticle = response.data;
+      setArticleInfo(updatedArticle);
+    } catch (error) {
+      console.error('Error upvoting the article', error);
+    }
+  }
 
   // if (!articleInfo || Object.keys(articleInfo).length === 0) {
   //   return <NotFoundPage />
@@ -25,7 +38,10 @@ const ArticlesPage = () => {
   return (
     <>
       <h1>{articleInfo.name}</h1>
-      <p>this article has {articleInfo.upvotes} upvote(s).</p>
+      <div>
+        <button onClick={upvoteArticle}>upvote +</button>
+        <p>this article has {articleInfo.upvotes} upvote(s).</p>
+      </div>
       <div>
         <p>{articleInfo.content}</p>
         <CommentsList comments={articleInfo.comments} />
