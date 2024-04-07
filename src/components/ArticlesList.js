@@ -1,13 +1,18 @@
 import { Link } from "react-router-dom";
-const ArticlesList = ({articles}) => {
+
+const ArticlesList = ({ articles }) => {
+  // check if articles is not an array, return an empty div
+  if (!Array.isArray(articles)) {
+    return <div>No articles available</div>
+  }
   return (
     <>
       {articles.map((article, index) => (
         <div key={index}>
           <Link className="article-list-item" to={`/articles/${article.name}`}>
-            <h1>{article.title}</h1>
-            <p>{article.content[0].substring(0, 145)}...</p>
+            <h1>{article.name}</h1>
           </Link>
+          <p>{article.content.substring(0, 145)}...</p>
         </div>
       ))}
     </>
