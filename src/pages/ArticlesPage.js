@@ -8,28 +8,24 @@ const ArticlesPage = () => {
   useEffect(() => {
     const fetchArticle = async () => {
       try {
-        const response = await axios.get(`http://localhost:3001/api/articles/${articleId}`);
-        console.log('what is my response:::', response);
+        const response = await axios.get(`/api/articles/${articleId}`);
         const newArticleInfo = response.data;
         setArticleInfo(newArticleInfo);
-
       } catch (error) {
-        console.error('error fetching articles', error);
+        console.error('error fetching the article', error);
       }
     }
     fetchArticle();
   }, [articleId])
 
-
-  // const article = articleInfo.find(article => article.name === articleId);
-  // if (!article) {
+  // if (!articleInfo || Object.keys(articleInfo).length === 0) {
   //   return <NotFoundPage />
   // }
   return (
     <>
-      {/* <h1>{articleInfo.title}</h1>
+      <h1>{articleInfo.name}</h1>
       <p>this article has {articleInfo.upvotes} upvote(s).</p>
-      {articleInfo.comments.map((paragraph, index) => (
+      {/* {articleInfo.comments.map((paragraph, index) => (
         <p key={index}>{paragraph}</p>
       ))} */}
     </>
