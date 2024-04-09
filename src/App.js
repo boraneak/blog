@@ -5,6 +5,8 @@ import HomePage from './pages/HomePage';
 import ArticlesListPage from './pages/ArticlesPage';
 import ArticlesPage from './pages/ArticlesListPage';
 import NotFoundPage from './pages/NotFoundPage';
+import LoginPage from './pages/LoginPage.js';
+import CreateAccountPage from './pages/CreateAccountPage.js';
 import NavBar from './NavBar';
 
 // Import the Firebase SDK
@@ -25,6 +27,8 @@ function App() {
             <Route path="/about" element={<AboutPage />} />
             <Route path="/articles" element={<ArticlesPage />} />
             <Route path='/articles/:articleId' element={<ArticlesListPage />} />
+            <Route path="/login" element={<LoginPage />} />
+            <Route path="/create-account" element={<CreateAccountPage />} />
             <Route path="*" element={<NotFoundPage />} />
           </Routes>
         </div>
