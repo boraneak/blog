@@ -7,6 +7,13 @@ import ArticlesPage from './pages/ArticlesListPage';
 import NotFoundPage from './pages/NotFoundPage';
 import NavBar from './NavBar';
 
+// Import the Firebase SDK
+import { initializeApp } from "firebase/app";
+import { firebaseConfig } from './firebase/index.js'
+// Initialize Firebase with your configuration
+initializeApp(firebaseConfig);
+
+
 function App() {
   return (
     <BrowserRouter>
