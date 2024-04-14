@@ -1,16 +1,17 @@
 import { useState } from "react";
-import { Link, Navigate } from "react-router-dom";
+import { Link, useNavigate } from "react-router-dom";
 import { getAuth, signInWithEmailAndPassword } from "firebase/auth";
 
 const LoginPage = () => {
   const [email, setEmail] = useState("");
   const [password, setPassword] = useState("");
   const [error, setError] = useState("");
+  const navigate = useNavigate();
 
   const Login = async () => {
     try {
       await signInWithEmailAndPassword(getAuth(), email, password);
-      <Navigate to="/articles" />;
+      return navigate("/articles");
     } catch (error) {
       setError(error.message);
     }
