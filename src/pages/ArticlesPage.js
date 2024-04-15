@@ -8,7 +8,7 @@ import useUser from "../hooks/useUser";
 import axios from "axios";
 const ArticlesPage = () => {
   const navigate = useNavigate();
-  const { user, isLoading } = useUser();
+  const { user } = useUser();
   console.log(user);
   let { articleId } = useParams();
   const [articleInfo, setArticleInfo] = useState({ upvotes: 0, comments: [] });

@@ -3,7 +3,7 @@ import axios from "axios";
 import useUser from "../hooks/useUser";
 import { useNavigate } from "react-router-dom";
 const AddCommentForm = ({ articleName, onArticleUpdated }) => {
-  const { user, isLoading } = useUser();
+  const { user} = useUser();
   const [name, setName] = useState("");
   const [commentText, setCommentText] = useState("");
   const navigate = useNavigate();
